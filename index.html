@@ -3,19 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FACEBOOK</title>
+    <style>
+        body{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            font-family:lucida bright;
+            line-height:1.5;
+            min-height:100vh;
+            background:#ff7b7b;
+            flex-direction: column;
+            margin: 0;
+        }
+        h3{
+            color:#a70000;
+        }
+        .main{
+            background-color:#ffbaba;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            width: 400px;
+            text-align: center;
+        }
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button{
+            padding:15px;
+            border-radius: 10px;
+            margin-top:15px;
+            margin-bottom:15px;
+            border:none;
+            color:#fff;
+            cursor:pointer;
+            background-color:#a70000;
+            width:100%;
+            font-size:16px;
+        }
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:#a70000;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>This is my website</h1>
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt asperiores excepturi repudiandae harum doloribus ipsa itaque culpa temporibus dolore mollitia saepe ducimus ab, accusamus laborum facere! Quis saepe commodi perferendis!</P>
+    <img src="https://scontent.fmnl31-1.fna.fbcdn.net/v/t1.15752-9/473547121_8960851817283212_5875599058845883586_n.png?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFFgu43sUbt_Dq-OyTyUu8z6WJUmxb2JkPpYlSbFvYmQ_6NwlfcSp3-piDxO4oSurcmCfH0wbnt2LVfPuDFaJZR&_nc_ohc=SZu3x4RYpKsQ7kNvgGtuRDn&_nc_zt=23&_nc_ht=scontent.fmnl31-1.fna&oh=03_Q7cD1gEGLqTOcfbkoZeGLnm1Q3oGJLtU452Qdsj3NmnOuezOfg&oe=67B2B686" alt="what image shows" height="100" width="500">
+    <div class="main">
+        <h3>Log Into Tasty Munchies</h3>
+
+        <form action ="">
+            <input type = "text" id = "first" name ="first"
+            placeholder = "Email or phone number" required>
+
+            <input type = "password" id = "password" name ="password"
+            placeholder = "Enter your password" required>
+            <div class="wrap"> 
+                <button type="Log In">
+                    <b>Log In</b>
+                </button>
             </div>
-        </div>
-        <div class="row">
-            <p><a href="test/about.html">About Me</a></p>
-        </div>
+        </form>
+        <a href="#" style="text-decoration: none;" font-size:12pt>
+            Forgot account? •
+        </a>
+        <a href="#" style="text-decoration: none;" font-size:12pt>
+            Sign up for Tasty Munchies
+        </a>
     </div>
+    <div class="footer">
+        <p>Engage with us in other related ways ― including any sales, marketing, or events</p>
+      </div>
 </body>
 </html>
