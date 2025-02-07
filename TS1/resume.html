@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="external.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
+<body>
+    <!-- RESUME -->
+    <div class="resume" id="resumeDiv">
+        <header>
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/373474265_248658117606928_114501229889398819_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEMkIi3GnYuNAuyWT6ry36R7WiAJ6rCJv_taIAnqsIm_8AAPZUpmbHjAncmUDIU-yjE504XNpWfULgpMCs2fZfC&_nc_ohc=kGrhOOZmNbkQ7kNvgHlrfA4&_nc_oc=AdjUeutW14rxx1-8R36C0hTdHjaRulw1wqDGy0hVZAQe-vhUJKSBSU4v3E6jDEOS2eUGr1CqakuzuXJBOMZRNtwh&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gG16R1KV8U7pKsfWbngDcNZc7QBh962gMt128x86qCZpA&oe=67CD1732" alt="Profile Picture" class="profile-pic">
+                    </td>
+                    <td>
+                        <h1>Gabrielle Margaux Catapang</h1>
+                        <p>Address: Manila, Philippines</p>
+                        <p>Contact No.: +63 1234 567 8901</p>
+                        <p>Email: gabriellecatapang04@gmail.com</p>
+                    </td>
+                </tr>
+            </table>
+        </header>
+        <!-- OBJECTIVE -->
+        <section>
+            <h2>Objective</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <br>
+            <hr>
+        </section>
+        <!-- WORK EXPERIENCE -->
+        <section>
+            <h2>Work Experience</h2>
+            <ul class="work-list">
+                <li><span class="job-title">Marketing Intern</span> <span class="company-name">ABCD Company (June 2022 - Aug 2022)</span></li>
+                <li><span class="job-title">Freelance Drawing Artist</span> <span class="company-name">Self-Employed (2021 - Present)</span></li>
+            </ul>
+        </section>
+        <!-- ACADEMIC BG -->
+        <section>
+            <h2>Academic Background</h2>
+            <ul class="academic-list">
+                <li><span class="education-level">High School:</span> <span class="school-name">Mapúa Malayan Colleges Laguna (2021 - 2023)</span></li>
+                <li><span class="education-level">College:</span> <span class="school-name">FEU Institute of Technology (2023 - 2027)</span></li>
+            </ul>
+        </section>
+        <!-- SKILLS -->
+        <section>
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Data Analysis</li>
+                <li>Creativity</li>
+                <li>Computer Skills</li>
+            </ul>
+        </section>
+    </div>
+    <!-- BUTTON -->
+    <button class="change-color-btn" id="changeColorButton">Change Color</button>
+    <script>
+        const resumeDiv = document.querySelector('.resume');
+        const changeColorButton = document.querySelector('.change-color-btn');
+
+        function changeColor() {
+            resumeDiv.classList.toggle('new-color');
+            resumeDiv.classList.toggle('clicked-text');
+        }
+        changeColorButton.addEventListener('click', changeColor);
+    </script>
+</body>
+</html>
