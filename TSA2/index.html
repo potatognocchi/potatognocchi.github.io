@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="external.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days of the Week</title>
+</head>
+<body>
+    <div class="container">
+        <button class="button">Sunday</button>
+        <button class="button">Monday</button>
+        <button class="button">Tuesday</button>
+        <button class="button">Wednesday</button>
+        <button class="button">Thursday</button>
+        <button class="button">Friday</button>
+        <button class="button">Saturday</button>
+    </div>
+    <div id="square"></div>
+
+    <script>
+        let square = document.getElementById('square');
+        let buttons = document.querySelectorAll('.button');
+        
+        const borderColors = ['#72A0C1','#a71930','#87A96B','#F0E68C','#DDA0DD','#F29F58','#FFC0CB'];
+    
+        let firstClick = true;
+    
+        function resetAndAnimate(index) {
+            square.style.opacity = 0;
+            square.style.top = '-200px';
+    
+            setTimeout(function() {
+                square.style.visibility = 'visible';
+                square.style.border = `10px solid ${borderColors[index]}`;  
+                square.style.opacity = 1;
+                square.style.top = '-10px';
+            }, firstClick ? 100 : 900);
+
+            firstClick = false;
+        }
+    
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                resetAndAnimate(index);
+            });
+        });
+    </script>    
+</body>
+</html>
