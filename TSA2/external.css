@@ -18,6 +18,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 60px;
 }
 .button:nth-child(1){
     background-color:#6CB4EE;
