@@ -68,6 +68,7 @@ keys.addEventListener('click', e => {
             const secondValue = calculator.dataset.secondValue
             display.textContent = calculate(firstValue, operator, secondValue)
         }
+        
         else if (action === 'compare') {
             try {
                 display.textContent = eval(display.textContent) ? 'true' : 'false';
