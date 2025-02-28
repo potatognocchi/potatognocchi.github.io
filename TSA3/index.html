@@ -38,47 +38,39 @@
         const keys = document.querySelector('.keys')
         const display = document.querySelector('.display')
 
-keys.addEventListener('click', e => {
+        keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
         const key = e.target
         const action = key.dataset.action
         const keyContent = key.textContent
         const displayedNum = display.textContent
+        
         if (!action) {
-            if (displayedNum === '0') {
-                display.textContent = keyContent
-            } else {
-                calculator.dataset.secondValue = keyContent
-                display.textContent = displayedNum + keyContent
-            }
+            display.textContent += keyContent;
         } else if (action === 'add' ||
             action === 'subtract' ||
             action === 'multiply' ||
             action === 'divide') {
-            calculator.dataset.firstValue = displayedNum
-            calculator.dataset.operator = action
-            display.textContent = displayedNum + keyContent
+            display.textContent += keyContent;
         } else if (action === 'decimal') {
-            display.textContent = displayedNum + '.'
+            display.textContent += '.';
         } else if (action === 'clear') {
-            display.textContent = ''
+            display.textContent = '';
         } else if (action === 'equal') {
-            const firstValue = calculator.dataset.firstValue
-            const operator = calculator.dataset.operator
-            const secondValue = calculator.dataset.secondValue
-            display.textContent = calculate(firstValue, operator, secondValue)
+            try {
+                display.textContent = eval(display.textContent.replace(/x/g, '*'));
+            } catch {
+                display.textContent = 'Error';
+            }
         }
-        
-        else if (action === 'compare') {
+        } else if (action === 'compare') {
             try {
                 display.textContent = eval(display.textContent) ? 'true' : 'false';
             } catch {
                 display.textContent = 'Error';
             }
         }
-    }
-})
-
+    });
 const calculate = (n1, operator, n2) => {
     let result = ''
     if (operator === 'add') {
