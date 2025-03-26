@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background:  no-repeat center center/cover;
+        }
+        .recipe-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+        .recipe-details {
+            position: absolute;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .recipe-card:hover .recipe-details {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center py-5" id="main-menu">
+        <h1 class="text-light">Restaurant Guide</h1>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card recipe-card" onclick="showRecipe('recipe1')">
+                    <img src="dish1.jpg" class="card-img-top" alt="Dish 1">
+                    <div class="recipe-details">
+                        <h5>Gabel Loffel</h5>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                        <button class="btn btn-warning">More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card recipe-card" onclick="showRecipe('recipe2')">
+                    <img src="dish2.jpg" class="card-img-top" alt="Dish 2">
+                    <div class="recipe-details">
+                        <h5>Gary Gari</h5>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                        <button class="btn btn-warning">More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card recipe-card" onclick="showRecipe('recipe3')">
+                    <img src="dish3.jpg" class="card-img-top" alt="Dish 3">
+                    <div class="recipe-details">
+                        <h5>Il Piatto</h5>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                        <button class="btn btn-warning">More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card recipe-card" onclick="showRecipe('recipe4')">
+                    <img src="dish4.jpg" class="card-img-top" alt="Dish 4">
+                    <div class="recipe-details">
+                        <h5>Pierre Platters</h5>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                        <button class="btn btn-warning">More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5 d-none" id="recipe-details">
+        <button class="btn btn-warning mb-3" onclick="showMainMenu()">Main Menu</button>
+        <div class="card">
+            <img src="" id="recipe-img" class="card-img-top">
+            <div class="card-body">
+                <h2 id="recipe-title"></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRecipe(recipe) {
+            document.getElementById('main-menu').classList.add('d-none');
+            document.getElementById('recipe-details').classList.remove('d-none');
+            
+            const recipes = {
+                recipe1: { title: 'Gabel Loffel', img: 'dish1.jpg' },
+                recipe2: { title: 'Gary Gari', img: 'dish2.jpg' },
+                recipe3: { title: 'Il Piatto', img: 'dish3.jpg' },
+                recipe4: { title: 'Pierre Platters', img: 'dish4.jpg' }
+            };
+            
+            document.getElementById('recipe-title').innerText = recipes[recipe].title;
+            document.getElementById('recipe-img').src = recipes[recipe].img;
+        }
+
+        function showMainMenu() {
+            document.getElementById('recipe-details').classList.add('d-none');
+            document.getElementById('main-menu').classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>
