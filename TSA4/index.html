@@ -5,70 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Guide</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: url('assets/resto.jpg') no-repeat center center/cover;
-        }
-        .recipe-card {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s;
-            height: 400px;
-        }
-        .recipe-card:hover {
-            transform: scale(1.05);
-        }
-        .recipe-details {
-            position: absolute;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.9);
-            width: 100%;
-            padding: 10px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        .recipe-card:hover .recipe-details {
-            transform: translateY(0);
-        }
-        .recipe-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        #recipe-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .recipe-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 10px;
-        }
-        .recipe-info div {
-            flex: 1;
-            padding: 0 10px;
-        }
-        .recipe-info div:not(:last-child) {
-            border-right: 2px solid #ccc;
-        }
-        .recipe-content {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .recipe-details h5, .recipe-details p {
-            border-top: 2px solid #ccc;
-            border-bottom: 2px solid #ccc;
-            padding: 5px 0;
-            margin: 0;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container text-center py-5" id="main-menu">
@@ -80,8 +17,8 @@
                     <h5 class="text-center bg-warning py-2">Gabel Loffel</h5>
                     <img src="assets/soup.jpg" class="card-img-top" alt="Dish 1">
                     <div class="recipe-details">
-                        <p>Lorem ipsum dolor sit amet...</p>
-                        <button class="btn btn-warning">More</button>
+                        <p class="more-text">Lorem ipsum dolor sit amet...</p>
+                        <p>More</p>
                     </div>
                 </div>
             </div>
@@ -90,8 +27,8 @@
                     <h5 class="text-center bg-warning py-2">Gary Gari</h5>
                     <img src="assets/shrimp.jpg" class="card-img-top" alt="Dish 2">
                     <div class="recipe-details">
-                        <p>Lorem ipsum dolor sit amet...</p>
-                        <button class="btn btn-warning">More</button>
+                        <p class="more-text">Lorem ipsum dolor sit amet...</p>
+                        <p>More</p>
                     </div>
                 </div>
             </div>
@@ -100,8 +37,8 @@
                     <h5 class="text-center bg-warning py-2">Il Piatto</h5>
                     <img src="assets/rice.jpg" class="card-img-top" alt="Dish 3">
                     <div class="recipe-details">
-                        <p>Lorem ipsum dolor sit amet...</p>
-                        <button class="btn btn-warning">More</button>
+                        <p class="more-text">Lorem ipsum dolor sit amet...</p>
+                        <p>More</p>
                     </div>
                 </div>
             </div>
@@ -110,8 +47,8 @@
                     <h5 class="text-center bg-warning py-2">Pierre Platters</h5>
                     <img src="assets/ramen.jpg" class="card-img-top" alt="Dish 4">
                     <div class="recipe-details">
-                        <p>Lorem ipsum dolor sit amet...</p>
-                        <button class="btn btn-warning">More</button>
+                        <p class="more-text">Lorem ipsum dolor sit amet...</p>
+                        <p>More</p>
                     </div>
                 </div>
             </div>
@@ -119,25 +56,33 @@
     </div>
     <div class="container py-5 d-none" id="recipe-details">
         <h1 class="text-center text-light">Restaurant Guide</h1>
-        <button class="btn btn-warning mb-3" onclick="showMainMenu()">Main Menu</button>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="" id="recipe-img" class="img-fluid rounded">
-            </div>
-            <div class="col-md-6 recipe-content">
-                <h2 id="recipe-title" class="text-danger"></h2>
-                <div class="recipe-info">
-                    <div>
-                        <p id="recipe-address"></p>
-                        <p id="recipe-phone"></p>
-                    </div>
-                    <div>
-                        <p id="recipe-category"></p>
-                        <p id="recipe-hours"></p>
-                        <p id="recipe-price"></p>
+        <button class="btn btn-warning" onclick="showMainMenu()">Main Menu</button>
+        <div class="card shadow-lg overflow-hidden">
+            <div class="row g-0">
+                <div class="col-md-5 position-relative">
+                    <img src="assets/soup.jpg" id="recipe-img" class="img-fluid w-100 h-100 object-fit-cover">
+                    <div class="position-absolute bg-warning border-line"></div>
+                    <h2 id="recipe-name" class="position-absolute text-light name-overlay">Dish Name</h2>
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h2 id="recipe-title" class="text-danger"></h2>
+    
+                        <div class="recipe-info d-flex justify-content-between border-bottom pb-2">
+                            <div>
+                                <p id="recipe-address"></p>
+                                <p id="recipe-phone"></p>
+                            </div>
+                            <div>
+                                <p id="recipe-category"></p>
+                                <p id="recipe-hours"></p>
+                                <p id="recipe-price"></p>
+                            </div>
+                        </div>
+    
+                        <p id="recipe-description" class="mt-3 border-bottom pb-3"></p>
                     </div>
                 </div>
-                <p id="recipe-description"></p>
             </div>
         </div>
     </div>
@@ -145,16 +90,15 @@
         function showRecipe(recipe) {
             document.getElementById('main-menu').classList.add('d-none');
             document.getElementById('recipe-details').classList.remove('d-none');
-            
             const recipes = {
-                recipe1: { title: 'Gabel Loffel', img: 'assets/soup.jpg', address: '315 Glendale Ave, Garden City', phone: '+44 20 4567 8925', category: 'Category: Snacks', hours: 'Open: 10AM to 10PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet.' },
-                recipe2: { title: 'Gary Gari', img: 'assets/shrimp.jpg', address: '123 Main St, Downtown', phone: '+44 20 1234 5678', category: 'Category: Seafood', hours: 'Open: 11AM to 9PM', price: 'Price: $$', description: 'Mauris nisi urna, ultrices ac congue eget, sagittis vitae mauris.' },
-                recipe3: { title: 'Il Piatto', img: 'assets/rice.jpg', address: '456 Oak Road, Westside', phone: '+44 20 8765 4321', category: 'Category: Italian', hours: 'Open: 12PM to 10PM', price: 'Price: $$$$', description: 'Fusce turpis velit, lobortis ac augue eget, rhoncus aliquet.' },
-                recipe4: { title: 'Pierre Platters', img: 'assets/ramen.jpg', address: '789 River Ave, East End', phone: '+44 20 9999 0000', category: 'Category: French', hours: 'Open: 9AM to 11PM', price: 'Price: $$$', description: 'Praesent convallis urna a lacus interdum id interdum risus congue.' }
+                recipe1: { title: 'Gabel Loffel', img: 'assets/soup.jpg', dishName: 'Gabel Loffel', address: '315 Glendale Ave, Garden City', phone: '+44 20 4567 8925', category: 'Category: Snacks', hours: 'Open: 10AM to 10PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe2: { title: 'Gary Gari', img: 'assets/shrimp.jpg', dishName: 'Gary Gari', address: '123 Main St, Downtown', phone: '+44 20 1234 5678', category: 'Category: Seafood', hours: 'Open: 11AM to 9PM', price: 'Price: $$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe3: { title: 'Il Piatto', img: 'assets/rice.jpg', dishName: 'Il Piatto', address: '456 Oak Road, Westside', phone: '+44 20 8765 4321', category: 'Category: Italian', hours: 'Open: 12PM to 10PM', price: 'Price: $$$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe4: { title: 'Pierre Platters', img: 'assets/ramen.jpg', dishName: 'Pierre Platters', address: '789 River Ave, East End', phone: '+44 20 9999 0000', category: 'Category: French', hours: 'Open: 9AM to 11PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }
             };
-            
             document.getElementById('recipe-title').innerText = recipes[recipe].title;
             document.getElementById('recipe-img').src = recipes[recipe].img;
+            document.getElementById('recipe-name').innerText = recipes[recipe].dishName;
             document.getElementById('recipe-address').innerText = recipes[recipe].address;
             document.getElementById('recipe-phone').innerText = recipes[recipe].phone;
             document.getElementById('recipe-category').innerText = recipes[recipe].category;
