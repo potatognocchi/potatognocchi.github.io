@@ -15,6 +15,7 @@
             overflow: hidden;
             transition: transform 0.3s;
             height: 400px;
+            border:3px solid #ffff;
         }
         .recipe-card:hover {
             transform: none;
@@ -38,8 +39,8 @@
             object-fit: cover;
         }
         .row {
-    display: flex; /* Makes the image and text align properly */
-    align-items: stretch; /* Ensures both elements match in height */
+    display: flex; 
+    align-items: stretch;
 }
 
 .recipe-img-container {
@@ -60,6 +61,7 @@
 }
 
 .recipe-info {
+    margin:0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,6 +93,10 @@
     height: 100%;
     left: 0;
     top: 0;
+    border-right:3px solid #ffff;
+    border-left:2px solid #ffff;
+    border-top:2px solid #ffff;
+    border-bottom:2px solid #ffff;
     position: absolute;
     z-index: 1; 
 }
@@ -99,11 +105,11 @@
 }
 #recipe-name {
     position: absolute;
-    transform: rotate(-90deg); /* Rotate dish name */
+    transform: rotate(-90deg); 
     transform-origin: left bottom;
-    left: 42px; /* Adjust to position over border */
-    top: 50%; /* Center it vertically */
-    z-index: 2; /* Ensures it appears above the border */
+    left: 42px;
+    top: 50%; 
+    z-index: 2; 
     color: white;
     padding: 5px 10px;
     white-space: nowrap;
@@ -112,34 +118,49 @@
 }
 #recipe-description {
     border-bottom: 5px solid black;
-    padding: 10px 0; 
+    padding: 0; 
     margin-top: 10px; 
     margin-bottom: 10px; 
 }
 .btn.btn-warning.my-3 {
+    border-color:#000;
     position: absolute;
     top:14%;
     right: 15%;
     transform: translateY(-50%);
 }
 .btn.btn-warning {
+    border-color:#000;
     position: absolute;
     top:14%;
     right: 15%;
     transform: translateY(-50%);
 }
 .text-light {
-    padding: 50px;
+    padding: 1px;
     display: block;
     margin-right: auto;
     margin-right: 0;
     width: fit-content;
 }
+h3.text-center.text-light {
+    margin-bottom: 25px; 
+}
+.btn-warning:hover {
+    background-color: #f4ffcc; 
+    color: #000; 
+}
+h5.text-center.bg-warning {
+    margin-bottom: 2px; 
+    padding-bottom: 5px; 
+}
     </style>
 </head>
 <body>
     <div class="container text-center py-5" id="main-menu">
-        <h1 class="text-light">Gabrielle's Restaurant</h1>
+        <h2 class="text-center text-light">Best of Merridien</h3>
+        <h1 class="text-center text-light">Restaurant Guide</h1>
+        <h3 class="text-center text-light">Produced By: Local Magazine</h3>
         <button class="btn btn-warning my-3" onclick="showMainMenu()">Main Menu</button>
         <div class="row mt-4">
             <div class="col-md-3">
@@ -185,7 +206,9 @@
         </div>
     </div>
     <div class="container py-5 d-none" id="recipe-details">
-        <h1 class="text-center text-light">Gabrielle's Restaurant</h1>
+        <h2 class="text-center text-light">Best of Merridien</h1>
+        <h1 class="text-center text-light">Restaurant Guide</h1>
+        <h3 class="text-center text-light">Produced By: Local Magazine</h1>
         <button class="btn btn-warning" onclick="showMainMenu()">Main Menu</button>
         <div class="card shadow-lg overflow-hidden">
             <div class="row g-0">
@@ -202,6 +225,7 @@
                             <div>
                                 <p id="recipe-address"></p>
                                 <p id="recipe-phone"></p>
+                                <p id="recipe-location"></p>
                             </div>
                             <div>
                                 <p id="recipe-category"></p>
@@ -221,16 +245,17 @@
             document.getElementById('main-menu').classList.add('d-none');
             document.getElementById('recipe-details').classList.remove('d-none');
             const recipes = {
-                recipe1: { title: 'Gabel Loffel', img: 'assets/soup.jpg', dishName: 'Gabel Loffel', address: '315 Glendale Ave, Garden City', phone: '+44 20 4567 8925', category: 'Category: Snacks', hours: 'Open: 10AM to 10PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-                recipe2: { title: 'Gary Gari', img: 'assets/shrimp.jpg', dishName: 'Gary Gari', address: '123 Main St, Downtown', phone: '+44 20 1234 5678', category: 'Category: Seafood', hours: 'Open: 11AM to 9PM', price: 'Price: $$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-                recipe3: { title: 'Il Piatto', img: 'assets/rice.jpg', dishName: 'Il Piatto', address: '456 Oak Road, Westside', phone: '+44 20 8765 4321', category: 'Category: Italian', hours: 'Open: 12PM to 10PM', price: 'Price: $$$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-                recipe4: { title: 'Pierre Platters', img: 'assets/ramen.jpg', dishName: 'Pierre Platters', address: '789 River Ave, East End', phone: '+44 20 9999 0000', category: 'Category: French', hours: 'Open: 9AM to 11PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }
+                recipe1: { title: 'Gabel Loffel', img: 'assets/soup.jpg', dishName: 'Gabel Loffel', address: '235 GLENDALE AVE, MERIDIEN CITY', phone: 'T: 490 49 4000', location: 'W: GANDO RES', category: 'CATEGORY: SWISS', hours: 'OPEN: 10AM to 10PM', price: 'PRICE: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe2: { title: 'Gary Gari', img: 'assets/shrimp.jpg', dishName: 'Gary Gari', address: 'T6 NO. HIGHLAND AVE, MERIDIEN CITY', phone: 'T: 490 24 6709', location: 'W: GANDO RES', category: 'CATEGORY: JAPANESE', hours: 'OPEN: 5PM to 10PM', price: 'PRICE: $$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe3: { title: 'Il Piatto', img: 'assets/rice.jpg', dishName: 'Il Piatto', address: '1213 SHOUTOUT WAY MERIDIEN CITY', phone: 'T: 490 42 1204', location: 'W: ILPLATTO RES', category: 'CATEGORY ITALLIAN', hours: 'Open: 11AM to 11PM', price: 'Price: $$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+                recipe4: { title: 'Pierre Platters', img: 'assets/ramen.jpg', dishName: 'Pierre Platters', address: '68 8TH AVE. MERIDIEN CITY', phone: '490 69 2020', location: 'W: PIERREP RES', category: 'CATEGORY: FUSHION', hours: 'OPEN: 11AM to 11PM', price: 'Price: $$$', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' }
             };
             document.getElementById('recipe-title').innerText = recipes[recipe].title;
             document.getElementById('recipe-img').src = recipes[recipe].img;
             document.getElementById('recipe-name').innerText = recipes[recipe].dishName;
             document.getElementById('recipe-address').innerText = recipes[recipe].address;
             document.getElementById('recipe-phone').innerText = recipes[recipe].phone;
+            document.getElementById('recipe-location').innerText = recipes[recipe].location;
             document.getElementById('recipe-category').innerText = recipes[recipe].category;
             document.getElementById('recipe-hours').innerText = recipes[recipe].hours;
             document.getElementById('recipe-price').innerText = recipes[recipe].price;
